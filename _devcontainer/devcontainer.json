@@ -1,0 +1,16 @@
+// Ambiente para GitHub Codespaces (ou "Dev Containers" no VS Code local).
+// Só o Node 22 + TypeScript: o banco é o MongoDB Atlas (string no .env).
+{
+  "name": "API de Notas (Node + MongoDB Atlas)",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": { "label": "API" }
+  },
+  "postCreateCommand": "npm install && cp -n .env.example .env",
+  "customizations": {
+    "vscode": {
+      "extensions": ["mongodb.mongodb-vscode", "humao.rest-client"]
+    }
+  }
+}

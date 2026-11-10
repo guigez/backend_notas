@@ -1,0 +1,34 @@
+# Requisições de teste (extensão "REST Client" do VS Code: clique em "Send Request").
+# Sem a extensão, use os comandos curl do README.
+
+@base = http://localhost:3000
+
+### Listar
+GET {{base}}/notas
+
+### Buscar pelo título
+GET {{base}}/notas?busca=mercado
+
+### Criar
+POST {{base}}/notas
+Content-Type: application/json
+
+{ "titulo": "Lista do mercado", "conteudo": "pão, café" }
+
+### Criar sem título (400)
+POST {{base}}/notas
+Content-Type: application/json
+
+{ "conteudo": "sem título" }
+
+### Uma nota (troque o id)
+GET {{base}}/notas/COLE-O-ID-AQUI
+
+### Editar só o conteúdo
+PATCH {{base}}/notas/COLE-O-ID-AQUI
+Content-Type: application/json
+
+{ "conteudo": "pão, café, leite" }
+
+### Apagar
+DELETE {{base}}/notas/COLE-O-ID-AQUI
